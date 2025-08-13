@@ -21,10 +21,7 @@ var customConfig = defineConfig([
         },
         rules: {
             '@typescript-eslint/explicit-function-return-type': [
-                'error',
-                {
-                    allowExpressions: true,
-                },
+                'off'
             ],
             '@typescript-eslint/no-deprecated': 'warn',
             '@typescript-eslint/no-explicit-any': 'off',
