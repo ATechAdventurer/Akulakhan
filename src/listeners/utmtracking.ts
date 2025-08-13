@@ -24,6 +24,8 @@ export class UTMTrackingListener extends Listener {
 			modifiedMessage = modifiedMessage.replace(url, urlWithoutQueryParams);
 		}
 
+		if (modifiedMessage === message.content) return;
+
 		if (deleteMessage) {
 			await Promise.allSettled([
 				message.delete(),
