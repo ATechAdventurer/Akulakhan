@@ -1,0 +1,3 @@
+services:
+  bot:
+    image: ghcr.io/atechadventurer/akulakhan:latest
