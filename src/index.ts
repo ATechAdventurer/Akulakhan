@@ -1,7 +1,6 @@
 import { SapphireClient } from '@sapphire/framework';
-import { GatewayIntentBits } from 'discord.js';
-
 import '@sapphire/plugin-pattern-commands/register';
+import { GatewayIntentBits } from 'discord.js';
 
 import { env } from './env';
 
