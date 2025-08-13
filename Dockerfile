@@ -1,4 +1,4 @@
-FROM node:24-alpine as base
+FROM node:24-alpine
 
 # Install pnpm
 RUN npm i -g pnpm
@@ -15,3 +15,4 @@ COPY src ./src
 COPY tsconfig.json ./tsconfig.json
 
 CMD ["pnpm", "run", "start"]
+
