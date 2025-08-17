@@ -2,6 +2,8 @@ import { Listener } from '@sapphire/framework';
 import { Message } from 'discord.js';
 
 const deleteMessage = false;
+
+const skipHostnames = ['discordapp.com', 'youtube.com', 'youtu.be'];
 export class UTMTrackingListener extends Listener {
 	constructor(context: Listener.LoaderContext, options: Listener.Options) {
 		super(context, {
@@ -20,6 +22,10 @@ export class UTMTrackingListener extends Listener {
 
 		let modifiedMessage = message.content;
 		for (const url of matches) {
+			const parsedUrl = new URL(url);
+			if (skipHostnames.some(host => parsedUrl.hostname.endsWith(host))) {
+				continue;
+			}
 			const urlWithoutQueryParams = url.split('?')[0];
 			modifiedMessage = modifiedMessage.replace(url, urlWithoutQueryParams);
 		}
